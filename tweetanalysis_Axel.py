@@ -15,10 +15,11 @@ import seaborn as sns
 import spacy
 import re
 
-from google.colab import drive
-drive.mount('/content/gdrive')
+#from google.colab import drive
+#drive.mount('/content/gdrive')
 
-root_path = 'gdrive/My Drive/Stats study group/'
+#root_path = 'gdrive/My Drive/Stats study group/'
+#Add wherever your file is..
 tweet_df = pd.read_csv('gdrive/My Drive/Stats study group/real_fake.csv')
 
 tweet_df.columns
@@ -113,6 +114,7 @@ import nltk
 tweet_df['tokenised_text'] = tweet_df['cleaned_text'].apply(lambda x: nlp.tokenizer(x))
 
 #entity recognition
+#idk what is happening here
 tweet_df['entities'] = tweet_df['tokenised_text'].text
 
 #vectorizing
