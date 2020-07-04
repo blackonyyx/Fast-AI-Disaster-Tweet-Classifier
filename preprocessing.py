@@ -160,6 +160,10 @@ def num_misspelt_words(text):
     corrected_text = spellcorrect(text)
     return sum([1 for o, c in zip(original_text, corrected_text) if o != c])
 
+def num_entities(text):
+    """Given text, get no. of entities."""
+    return len(collect_entities(text))
+
 
 # ===== DERIVED FEATURES =====
 def sum_word_len(tokens):
@@ -212,6 +216,7 @@ def preprocess(df):
     df['count_capital_letters'] = df['text'].apply(lambda x: len(re.findall(r'[A-Z]', x)))
     df['ratio_capital_letters'] = df['length'] / df['count of capital letters']
     df['external_url'] = df['text'].apply(collect_url)
+    df['num_entities'] = df['text'].apply(num_entities)
 
     # Derived features
     df['sum_word_len'] = df['tokens'].apply(sum_word_len)
