@@ -10,6 +10,7 @@ Dependencies
 
 import numpy as np
 import pandas as pd
+import re
 from spellchecker import SpellChecker
 spell = SpellChecker()
 import spacy
@@ -41,6 +42,21 @@ def spellcorrect(text):
     """Given string, list-split, apply SpellChecker's correction,
     return space-delimited list"""
     return " ".join([spell.correction(word) for word in text.split()])
+
+def collect_url(string): 
+    text = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+',string)
+    return "".join(text) # converting return value from list to string
+# New Feature for extracting URLs
+
+def remove_URL(text):
+    url = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
+    return url.sub(r'',text)
+# Can remove from text after extracting them, especially if text is not going to be used in the model.
+
+def remove_html(text):
+    html=re.compile(r'<.*?>')
+    return html.sub(r'',text)
+# HTML Tags are most probably useless in our evaluation. Can just remove
 
 def collect_stopwords(tokens):
     """Given list of words, collect only NLTK stopwords"""
@@ -117,6 +133,8 @@ def preprocess(df):
   df['num_uppercase_words'] = df['tokens'].apply(num_uppercase_words)
   df['num_uppercase_chars'] = df['text'].apply(num_uppercase_chars)
   df['length'] = df['text'].apply(len)
-  df['text'].apply(lambda x: len([c for c in str(x) if c == '#']))
+  df['num_hashtags'] = df['text'].apply(lambda x: len([c for c in str(x) if c == '#']))
+  df['num_mentions'] = df['text'].apply(lambda x: len([c for c in str(x) if c == '@']))
   df['count of capital letters'] = df['text'].apply(lambda x: len(re.findall(r'[A-Z]', x)))
   df['ratio of capital letters'] = df['length'] / df['count of capital letters']
+  df['external_url'] = df['text'].apply(collect_url)
