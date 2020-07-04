@@ -90,7 +90,7 @@ def collect_punctuations(text):
 
 def collect_digits(text):
     """Given string, collect only digits"""
-    return [c for c in text if c.isdigit()]
+    return " ".join([c for c in text if c.isdigit()])
 
 def collect_uppercase_words(tokens):
     """Given list of tokens, collect only uppercase words"""
@@ -209,8 +209,8 @@ def preprocess(df):
     df['length'] = df['text'].apply(len)
     df['num_hashtags'] = df['text'].apply(lambda x: len([c for c in str(x) if c == '#']))
     df['num_mentions'] = df['text'].apply(lambda x: len([c for c in str(x) if c == '@']))
-    df['count of capital letters'] = df['text'].apply(lambda x: len(re.findall(r'[A-Z]', x)))
-    df['ratio of capital letters'] = df['length'] / df['count of capital letters']
+    df['count_capital_letters'] = df['text'].apply(lambda x: len(re.findall(r'[A-Z]', x)))
+    df['ratio_capital_letters'] = df['length'] / df['count of capital letters']
     df['external_url'] = df['text'].apply(collect_url)
 
     # Derived features
@@ -224,7 +224,3 @@ def preprocess(df):
     df['text'] = df['text'].apply(remove_digits)
     df['text'] = df['text'].apply(remove_punctuations)
     df['text'] = df['text'].apply(remove_emojis)
-
-
-
-
