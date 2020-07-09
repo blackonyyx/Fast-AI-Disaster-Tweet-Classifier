@@ -214,7 +214,7 @@ def preprocess(df):
     df['num_hashtags'] = df['text'].apply(lambda x: len([c for c in str(x) if c == '#']))
     df['num_mentions'] = df['text'].apply(lambda x: len([c for c in str(x) if c == '@']))
     df['count_capital_letters'] = df['text'].apply(lambda x: len(re.findall(r'[A-Z]', x)))
-    df['ratio_capital_letters'] = df['length'] / df['count of capital letters']
+    df['ratio_capital_letters'] = df['length'] / df['count_capital_letters']
     df['external_url'] = df['text'].apply(collect_url)
     df['num_entities'] = df['text'].apply(num_entities)
 
