@@ -21,7 +21,7 @@ Similar projects dealing with the detection of fake tweets had datasets with mor
 We merely had the location of the tweet and the tweet itself. We thus settled on using Spacy and NLTK's tokenizer for its Named Entity Recognition (NER) capabilities. Apart from that our preprocessing steps included:
 
 1. Reducing characters to lowercase
-2. Removing @ and #
+2. Removing mentions (@) and hashtags (#)
 3. Removing external links to other websites
 4. Removing unicode for emojis
 
@@ -50,6 +50,8 @@ We could explore a hybrid model of using both unstructured and structured data t
 ## Thoughts and Reflections
 
 Preprocessing social media comments requires good understanding of the platform in order to convey the context of comments accurately
+
 Hard for NLP models to detect sarcasm. Even humans have problems picking it up on the internet.
+
 Simple Transformers Package is really simple to use for NLP. Makes NLP simple to use and has relatively high accuracy even on the base model.
 
