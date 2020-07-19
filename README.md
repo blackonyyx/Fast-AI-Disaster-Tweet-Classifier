@@ -53,7 +53,7 @@ Towards RoBERTa:
 
 RoBERTa is a improvement on the baseline BERT model discovered in the paper [Attention is All You Need](https://arxiv.org/abs/1706.03762) that makes several key improvements to pre-training and training strategies that lead to better downstream task performances and lead better into transfer learning than the original BERT model. 
 
-Note: RoBERTa uses THE SAME archietecture as BERT, however instead goes into certain design choices and pretraining steps and refines them.
+Note: RoBERTa uses THE SAME archietecture as BERT, however instead goes into certain design choices and pretraining steps and refines them to produce better performance on most downstream tasks.
 
 *Why does the model perform so well?*
 
@@ -73,6 +73,8 @@ Application for RoBERTa:
 As BERT/RoBERTa Models require only text, and such text in lowercase format. We clean the text to get rid of all punctuations, weird symbols, htmls and other such things before running it through simpletransformers.
 
 Then, we apply the RoBERTa tokenizer and use the simpletransformers library to perform the task easily with minimal boilerplate code.
+
+Surprisingly BERT seemed to perform better on the Data Set as compared to RoBERTa, however this could possible be attributed to 
 
 ## Further Extension
 
