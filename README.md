@@ -76,11 +76,11 @@ As BERT/RoBERTa Models require only text, and such text in lowercase format. We 
 
 Then, we apply the RoBERTa tokenizer and use the simpletransformers library to perform the task easily with minimal boilerplate code.
 
-Surprisingly BERT seemed to perform better on the Data Set as compared to RoBERTa, however this could possible be attributed to 
+Surprisingly BERT seemed to perform slightly better on the Data Set as compared to RoBERTa (0.837), however this could possible be attributed to not enough training, or random error.
 
 ## Further Extension
 
-We could explore a hybrid model of using both unstructured and structured data to train the model.
+We could explore a hybrid model of using both unstructured and structured data to train the model. [TABERTA] (https://ai.facebook.com/research/publications/tabert-pretraining-for-joint-understanding-of-textual-and-tabular-data/)
 
 ## Thoughts and Reflections
 
@@ -88,4 +88,4 @@ Preprocessing social media comments requires good understanding of the platform 
 
 Hard for NLP models to detect sarcasm. Even humans have problems picking it up on the internet.
 
-Simple Transformers Package is really simple to use for NLP. Makes NLP simple to use and has relatively high accuracy even on the base model.
+Simple Transformers Package is really simple to use for NLP. Makes NLP simple to use and has relatively high accuracy even on a base model.
