@@ -28,7 +28,9 @@ We merely had the location of the tweet and the tweet itself. We thus settled on
 3. Removing external links to other websites
 4. Removing unicode for emojis
 
-Given the unstructured data of the tweets, many kaggle notebooks on the same competition used Deep Learning models such as BERT to great success. As such we were tempted to find out more.
+Using these tabular data and the tweet text as a bag of words, we were going to try out Machine Learning Models such as Naive Bayes and Random Forest Classifiers on the dataset. However, given the unstructured data of the tweets and the lackluster performance of non-deep learning models on the task we looked at kaggle notebooks and found that many kaggle notebooks on the same competition used Deep Learning models such as BERT to great success. 
+
+As such we were tempted to find out more about such models and why they were so successful on the task.
 
 ## Evaluation Models
 
