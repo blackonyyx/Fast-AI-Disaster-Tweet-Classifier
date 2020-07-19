@@ -36,7 +36,7 @@ As such we were tempted to find out more about such models and why they were so 
 
 Given Jet's prior knowledge of developments in NLP, we initially researched on 3 different models, BERT, RoBERTa and GPT2. From here, we realised the presence of the Simple Transformers package which has greatly reduced the amount of code that we had to write.
 
-Upon further research into the 3 different models. We realised that each of them had their own advantages and shortcomings. One notable example was the OpenAI's GPT2 model. There were a few reasons why it did not seem to be effective at detecting machine generated tweets.
+Upon further research into the 3 different models. We realised that each of them had their own advantages and shortcomings. One notable example was the OpenAI's [GPT2](https://openai.com/blog/better-language-models/) model. There were a few reasons why it did not seem to be effective at detecting machine generated tweets.
 
 1. GPT2 is good at detecting mahine generated tweets made by GPT2, but its performance is lacklustre when using it against different language models. Tweets in the datset were not generated using GPT2 as GPT2 did not exist yet.
 2. GPT2 is more often used in creating text content, which is why its creators were initialy reluctant towards releasing the full model due to the fear of it enabling malicious activity.
@@ -51,7 +51,7 @@ BERT is a model that worked extremely well for us. It stands for Bidirectional E
 
 As mentioned, the Simple Transformers package allowed us to run the BERT model with very few lines of code. The base model before fine-tuning produced an impressive accuracy score a 0.845.
 
-Towards RoBERTa:
+Towards [RoBERTa](https://arxiv.org/abs/1907.11692):
 
 RoBERTa is a improvement on the baseline BERT model discovered in the paper [Attention is All You Need](https://arxiv.org/abs/1706.03762) that makes several key improvements to pre-training and training strategies that lead to better downstream task performances and lead better into transfer learning than the original BERT model. 
 
