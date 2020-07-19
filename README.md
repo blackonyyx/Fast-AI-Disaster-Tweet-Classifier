@@ -80,7 +80,7 @@ Surprisingly BERT seemed to perform slightly better on the Data Set as compared 
 
 ## Further Extension
 
-We could explore a hybrid model of using both unstructured and structured data to train the model. [TABERTA] (https://ai.facebook.com/research/publications/tabert-pretraining-for-joint-understanding-of-textual-and-tabular-data/)
+We could explore a hybrid model of using both unstructured and structured data to train the model. [TABERTA](https://ai.facebook.com/research/publications/tabert-pretraining-for-joint-understanding-of-textual-and-tabular-data/)
 
 ## Thoughts and Reflections
 
