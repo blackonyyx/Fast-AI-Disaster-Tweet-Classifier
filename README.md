@@ -28,7 +28,7 @@ We merely had the location of the tweet and the tweet itself. We thus settled on
 3. Removing external links to other websites
 4. Removing unicode for emojis
 
-Using these tabular data and the tweet text as a bag of words, we were going to try out Machine Learning Models such as Naive Bayes and Random Forest Classifiers on the dataset. However, given the unstructured data of the tweets and the lackluster performance of non-deep learning models on the task we looked at kaggle notebooks and found that many kaggle notebooks on the same competition used Deep Learning models such as BERT to great success. 
+Using these tabular data and the tweet text as a bag of words, we were going to try out Machine Learning Models such as Naive Bayes and Random Forest Classifiers on the dataset. However, given the unstructured data of the tweets and the lackluster performance of non-deep learning models on the task we looked at kaggle notebooks and found that many kaggle notebooks on the same competition used Deep Learning models such as BERT to great success.
 
 As such we were tempted to find out more about such models and why they were so successful on the task.
 
@@ -53,34 +53,37 @@ BERT is a model that worked extremely well for us. It stands for Bidirectional E
 
 3. BERT can be easily fine-tuned by adding just a couple of output layers to create the model for our specific task. The simple transformers library allowed us to leverage this to create a BERT model specific for a text classification task. Since our project required us to essentially do a binary text classification, this model fit into our project well.
 
-As mentioned, the Simple Transformers package allowed us to run the BERT model with very few lines of code. The base model before fine-tuning produced an impressive accuracy score a 0.845.
+As mentioned, the Simple Transformers package allowed us to run the BERT model with very few lines of code. The base model before fine-tuning produced an impressive accuracy score a 0.835 and an f1-score of 0.797.
 
 ### Towards [RoBERTa](https://arxiv.org/abs/1907.11692):
 
-RoBERTa is a improvement on the baseline BERT model discovered in the paper [Attention is All You Need](https://arxiv.org/abs/1706.03762) that makes several key improvements to pre-training and training strategies that lead to better downstream task performances and lead better into transfer learning than the original BERT model. 
+RoBERTa is a improvement on the baseline BERT model discovered in the paper [Attention is All You Need](https://arxiv.org/abs/1706.03762) that makes several key improvements to pre-training and training strategies that lead to better downstream task performances and lead better into transfer learning than the original BERT model.
 
 Note: RoBERTa uses THE SAME archietecture as BERT, however instead goes into certain design choices and pretraining steps and refines them to produce better performance on most downstream tasks.
 
-*Why does the model perform so well?*
+_Why does the model perform so well?_
 
-The pretraining machine learning task that baseline BERT is trained to perform is to perform Masked Language Models (Masking a proportion of words in text and using the other words to predict the mask) and Next Sentence Prediction(NSP) to predict whether 2 segments follow each other or are from different documents. 
+The pretraining machine learning task that baseline BERT is trained to perform is to perform Masked Language Models (Masking a proportion of words in text and using the other words to predict the mask) and Next Sentence Prediction(NSP) to predict whether 2 segments follow each other or are from different documents.
 
 1. Dynamic Masking Patterns vs Static Masking Patterns in pre-training
+
 - RoBERTa uses dynamic masking for the MLM task where masking for each sentence is dynamically generated each time rather than with a static set of patterns, resulting in better gains in metrics of NLP learning like SQuAD 2.0, MNLI-m and SST-2.
 
 2. Different training objectives
+
 - BERT training objective and thus how it's training loss is calculated and optimised, uses NSP while RoBERTa uses instead FULL-SENTENCES without NSP where inputs are packed with sentences sampled from one or more documents until input of the model is reached. Hence removing the NSP prediction task improves the performance of the model on downstream tasks.
 
 3. More data and larger batch sizes can improve the performance of BERT models on downstream tasks
+
 - More data was used and larger batch sizes of around 2K improved performance on their tasks.
 
-Application for RoBERTa: 
+Application for RoBERTa:
 
 As BERT/RoBERTa Models require only text, and such text in lowercase format. We clean the text to get rid of all punctuations, weird symbols, htmls and other such things before running it through simpletransformers.
 
 Then, we apply the RoBERTa tokenizer and use the simpletransformers library to perform the task easily with minimal boilerplate code.
 
-Surprisingly BERT seemed to perform marginally better on the Data Set as compared to RoBERTa (0.837), however this could possible be attributed to not enough training, or random error.
+Surprisingly BERT (0.797) seemed to perform marginally better on the Data Set as compared to RoBERTa (0.784), however this could possible be attributed to not enough training, or random error.
 
 ## Further Extension
 
