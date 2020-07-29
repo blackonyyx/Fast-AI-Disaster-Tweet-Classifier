@@ -83,7 +83,7 @@ As BERT/RoBERTa Models require only text, and such text in lowercase format. We 
 
 Then, we apply the RoBERTa tokenizer and use the simpletransformers library to perform the task easily with minimal boilerplate code.
 
-Surprisingly BERT (0.797) seemed to perform marginally better on the Data Set as compared to RoBERTa (0.784), however this could possible be attributed to not enough training, or random error.
+Surprisingly BERT (0.797) seemed to perform marginally better on the Data Set as compared to RoBERTa (0.784), Metric used is F1 Score, however this could possible be attributed to not enough training, or random error.
 
 ## Further Extension
 
